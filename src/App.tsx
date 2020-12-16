@@ -14,16 +14,23 @@ function App() {
     }
     console.log("response");
 
-    const response = await api.get(`/${summoner}`);
-    setLevel(`Olá ${summoner}, você é nível ${response.data.summonerLevel}!`);
-    console.log(response.data.summonerLevel);
+    try{
+      const response = await api.get(`/${summoner}`)
+      setLevel(`Olá ${summoner}, você é nível ${response.data.summonerLevel}!`);
+      console.log(response.data);
+    }catch(error){
+      return console.log(error);
+    } 
   }
 
   return (
     <div className="App">
-      <form onSubmit={searchSummoner}>
-        <Input name="busca" label={summoner} onChange={event=>{setSummoner(event.target.value)}} />
-        <button type="submit">Buscar</button>
+      <form onSubmit={searchSummoner} id="searchBox">
+        <Input name="busca" 
+          label="Busque pelo seu nome de invocador" 
+          onChange={event=>{setSummoner(event.target.value)}} 
+        />
+        <button type="submit">Buscar🔎</button>
       </form>
       <h3>{level}</h3>
     </div>
