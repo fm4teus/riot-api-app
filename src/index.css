@@ -3,5 +3,16 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+body{
+    margin: 0;
+    padding: 0;   
     font-family: 'Poppins', sans-serif;
 }

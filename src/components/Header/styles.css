@@ -1,0 +1,9 @@
+header#AppHeader{
+    height: 10rem;
+    background-color: #ff4655;
+    color: #eeeeee;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

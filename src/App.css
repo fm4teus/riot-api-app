@@ -1,9 +1,8 @@
 .App {
   display: flex;
-  
+  padding: 1rem;
   text-align: center;
-  width: 80vw;
-  height: 60vh;
+  width: 90vw;
   max-width: 800px;
   margin: auto;
 }
@@ -24,8 +23,9 @@
   margin-bottom: 0.8rem;
   align-self: flex-end;
   border-radius: 0 0.8rem 0.8rem 0;
-  border: 1px solid #000000;
+  border: none;
   box-shadow: 2px 2px 8px #00000055;
+  outline: none;
 }
 
 #searchBox button:hover{
