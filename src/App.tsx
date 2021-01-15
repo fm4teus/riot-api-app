@@ -14,6 +14,7 @@ interface MatchChampionProps{
 function App() {
   const [summoner, setSummoner] = useState("Digite aqui");
   const [level, setLevel] = useState("");
+  const [hello, setHello] = useState("");
   const [masteryScore, setMasteryScore] = useState("");
   const [matchList, setMatchList] = useState<MatchProps[]>([]);
   const [matchChampionList, setMatchChampionList] = useState<MatchChampionProps[]>([]);
@@ -25,36 +26,10 @@ function App() {
 
     try{
       const response = await api.get(`/${summoner}`)
-      setLevel(`Olá ${summoner}, você é nível ${response.data.summonerLevel}!`);
-      setMasteryScore(`Pontuação de maestria: ${response.data.masteryScore}!`);
+      setHello(`Olá ${summoner},`);
+      setLevel(`Nível: ${response.data.summonerLevel}`)
+      setMasteryScore(`Pontuação de maestria: ${response.data.masteryScore}`);
       setMatchList(response.data.matchList);
-      console.log("TIPO MATCHLIST")
-      console.log(typeof(response.data.matchList));
-      console.log(response.data.matchList[0]);
-      console.log(response.data.matchList[1]);
-      console.log(response.data.matchList[2]);
-      console.log(response.data.matchList[1]);
-
-      for( const match in response.data.matchList){
-          const responseMatch = await api.get(`/champions/${response.data.matchList[match].championCode}`)
-      }
-      /*
-      const championList = await response.data.matchList.map(async (match:MatchProps)=>{
-        const responseMatch = await api.get(`/champions/${match.championCode}`)
-        return{
-          championCode: match.championCode,
-          id: responseMatch.data.id,
-          title: responseMatch.data.title
-        }
-      })
-      (async () => {
-        const resultado: MatchChampionProps[] = await Promise.all(championList);
-        console.log(resultado);
-        setMatchChampionList(resultado);
-      })();
-      */
-
-      console.log(matchChampionList)
     }catch(error){
       return console.log(error);
     } 
@@ -69,11 +44,19 @@ function App() {
         />
         <button type="submit">Buscar🔎</button>
       </form>
-      <h3>{level}</h3>
-      <h3>{masteryScore}</h3>
+      <h2>{hello}</h2>
+      <header>
+        <h3>{level}</h3>
+        <h3>{masteryScore}</h3>
+      </header>
       { matchList.map(((match: any) => {
         console.log(match)
-        return <Match championName={match.championName} />
+        return <Match 
+          championName={match.championName} 
+          championId={match.championId} 
+          gameMode={match.gameMode}
+          win={match.win}
+        />
       }))}
     </div>
   );

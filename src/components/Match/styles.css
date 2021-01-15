@@ -1,0 +1,32 @@
+div.match-victory{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ddffee;
+    border: 0.2rem solid #00A42D;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 1rem 0;
+}
+div.match-defeat{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffddee;
+    border: 0.2rem solid #C70039;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+div.icon img{
+    height: 6rem;
+}
+
+div.match h4{
+    margin-top: 0.1rem;
+}

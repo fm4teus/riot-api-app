@@ -11,6 +11,12 @@
     height: 100vh;
 }
 
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 body{
     margin: 0;
     padding: 0;   
